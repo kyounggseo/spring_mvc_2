@@ -87,22 +87,22 @@ username 프로퍼티의 값을 변경하면 setUsername() 이 호출되고, 조
 <br/>
 
 :one: @RequestBody<br/>
->> @RequestBody 를 사용하면 HTTP 메시지 바디 정보를 편리하게 조회할 수 있다. 참고로 헤더 정보가 필요하다면 HttpEntity 를 사용하거나 @RequestHeader 를 사용하면 된다.<br/>
->> 이렇게 메시지 바디를 직접 조회하는 기능은 요청 파라미터를 조회하는 @RequestParam , @ModelAttribute 와는 전혀 관계가 없다.<br/>
+@RequestBody 를 사용하면 HTTP 메시지 바디 정보를 편리하게 조회할 수 있다. 참고로 헤더 정보가 필요하다면 HttpEntity 를 사용하거나 @RequestHeader 를 사용하면 된다.<br/>
+이렇게 메시지 바디를 직접 조회하는 기능은 요청 파라미터를 조회하는 @RequestParam , @ModelAttribute 와는 전혀 관계가 없다.<br/>
 :two: 요청 파라미터 vs HTTP 메시지 바디<br/>
->> 요청 파라미터를 조회하는 기능: @RequestParam , @ModelAttribute<br/>
->> HTTP 메시지 바디를 직접 조회하는 기능: @RequestBody<br/>
+요청 파라미터를 조회하는 기능: @RequestParam , @ModelAttribute<br/>
+HTTP 메시지 바디를 직접 조회하는 기능: @RequestBody<br/>
 :three: @ResponseBody<br/>
->> @ResponseBody 를 사용하면 응답 결과를 HTTP 메시지 바디에 직접 담아서 전달할 수 있다. 물론 이 경우에도 view를 사용하지 않는다<br/>
+@ResponseBody 를 사용하면 응답 결과를 HTTP 메시지 바디에 직접 담아서 전달할 수 있다. 물론 이 경우에도 view를 사용하지 않는다<br/>
 :four: @RequestBody 객체 파라미터<br/>
-[코드] @RequestBody HelloData data<br/>
->> @RequestBody 에 직접 만든 객체를 지정할 수 있다.<br/>
->> HttpEntity , @RequestBody 를 사용하면 HTTP 메시지 컨버터가 HTTP 메시지 바디의 내용을 우리가 원하는 문자나 객체 등으로 변환해준다.<br/>
->> @RequestBody는 생략 불가능<br/>
+>> @RequestBody HelloData data<br/>
+@RequestBody 에 직접 만든 객체를 지정할 수 있다.<br/>
+HttpEntity , @RequestBody 를 사용하면 HTTP 메시지 컨버터가 HTTP 메시지 바디의 내용을 우리가 원하는 문자나 객체 등으로 변환해준다.<br/>
+@RequestBody는 생략 불가능<br/>
 :five: 정리<br/>
->> @RequestBody 요청<br/>
+@RequestBody 요청<br/>
   >> JSON 요청 HTTP 메시지 컨버터 객체<br/>
->>@ResponseBody 응답<br/>
+@ResponseBody 응답<br/>
   >> 객체 HTTP 메시지 컨버터 JSON 응답<br/>
 <br/>
 ✏️ HTTP 응답 - 정적 리소스, 뷰 템플릿<br/>
@@ -115,8 +115,7 @@ username 프로퍼티의 값을 변경하면 setUsername() 이 호출되고, 조
 HTTP API를 제공하는 경우에는 HTML이 아니라 데이터를 전달해야 하므로, HTTP 메시지 바디에 JSON 같은 형식으로 데이터를 실어 보낸다<br/>
 <br/>
 ✏️ HTTP 메시지 컨버터<br/>
-뷰 템플릿으로 HTML을 생성해서 응답하는 것이 아니라, HTTP API처럼 JSON 데이터를 HTTP 메시지 바디에서 직접 읽거나 쓰는 경우 HTTP 메시지 컨버터를 사용하면 편리하다.<br/>
-스프링 MVC는 다음의 경우에 HTTP 메시지 컨버터를 적용한다.<br/>
+뷰 템플릿으로 HTML을 생성해서 응답하는 것이 아니라, HTTP API처럼 JSON 데이터를 HTTP 메시지 바디에서 직접 읽거나 쓰는 경우 HTTP 메시지 컨버터를 사용하면 편리하다. 스프링 MVC는 다음의 경우에 HTTP 메시지 컨버터를 적용한다.<br/>
 :round_pushpin: HTTP 요청: @RequestBody , HttpEntity(RequestEntity) , <br/>
 :round_pushpin: HTTP 응답: @ResponseBody , HttpEntity(ResponseEntity)<br/>
 <br/>
