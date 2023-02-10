@@ -60,7 +60,6 @@ GET 쿼리 파리미터 전송 방식이든, POST HTML Form 전송 방식이든 
 <br/>
 ✏️ HTTP 요청 파라미터 - @ModelAttribute<br/>
 요청 파라미터를 받아서 필요한 객체를 만들고 그 객체에 값을 넣어주어야 한다. 스프링은 이 과정을 완전히 자동화해주는 @ModelAttribute 기능을 제공한다.<br/>
-<br/>
 :one: 롬복 @Data<br/>
   >> @Getter , @Setter , @ToString , @EqualsAndHashCode , @RequiredArgsConstructor 를 자동으로 적용해준다.<br/>
 <br/>
@@ -70,9 +69,9 @@ GET 쿼리 파리미터 전송 방식이든, POST HTML Form 전송 방식이든 
 <br/>
 :three: @ModelAttribute 는 생략할 수 있다.<br/>
 그런데 @RequestParam 도 생략할 수 있으니 혼란이 발생할 수 있다. 스프링은 해당 생략시 다음과 같은 규칙을 적용한다.<br/>
-  :one: String , int , Integer 같은 단순 타입 = @RequestParam<br/>
-  :two: 나머지 = @ModelAttribute (argument resolver 로 지정해둔 타입 외<br/>
-  <br/>
+> String , int , Integer 같은 단순 타입 = @RequestParam<br/>
+> 나머지 = @ModelAttribute (argument resolver 로 지정해둔 타입 외<br/>
+<br/>
 ✏️ 프로퍼티란?<br/>
 객체에 getUsername() , setUsername() 메서드가 있으면, 이 객체는 username 이라는 프로퍼티를 가지고 있다.<br/>
 username 프로퍼티의 값을 변경하면 setUsername() 이 호출되고, 조회하면 getUsername() 이 호출된다.<br/>
