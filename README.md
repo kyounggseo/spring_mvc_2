@@ -92,7 +92,7 @@ HTTP 메시지 바디를 직접 조회하는 기능: @RequestBody<br/>
 :three: @ResponseBody<br/>
 @ResponseBody 를 사용하면 응답 결과를 HTTP 메시지 바디에 직접 담아서 전달할 수 있다. 물론 이 경우에도 view를 사용하지 않는다<br/>
 :four: @RequestBody 객체 파라미터<br/>
-[코드] @RequestBody HelloData data<br/>
+  >> @RequestBody HelloData data<br/>
 @RequestBody 에 직접 만든 객체를 지정할 수 있다.<br/>
 HttpEntity , @RequestBody 를 사용하면 HTTP 메시지 컨버터가 HTTP 메시지 바디의 내용을 우리가 원하는 문자나 객체 등으로 변환해준다.<br/>
 @RequestBody는 생략 불가능<br/>
