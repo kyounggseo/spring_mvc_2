@@ -132,8 +132,7 @@ HttpServletRequest , Model 은 물론이고, @RequestParam , @ModelAttribute 같
 :two: 동작 방식<br/>
 ArgumentResolver 의 supportsParameter() 를 호출해서 해당 파라미터를 지원하는지 체크하고, 지원하면 resolveArgument() 를 호출해서 실제 객체를 생성한다. 그리고 이렇게 생성된 객체가 컨트롤러 호출시 넘어가는 것이다<br/>
 :three: ReturnValueHandler<br/>
-HandlerMethodReturnValueHandler 를 줄여서 ReturnValueHandler 라 부른다. ArgumentResolver 와 비슷한데, 이것은 응답 값을 변환하고 처리한다.<br/>
-컨트롤러에서 String으로 뷰 이름을 반환해도, 동작하는 이유가 바로 ReturnValueHandler 덕분이다<br/>
+HandlerMethodReturnValueHandler 를 줄여서 ReturnValueHandler 라 부른다. ArgumentResolver 와 비슷한데, 이것은 응답 값을 변환하고 처리한다. 컨트롤러에서 String으로 뷰 이름을 반환해도, 동작하는 이유가 바로 ReturnValueHandler 덕분이다<br/>
 <br/>
 ✏️ HTTP 메시지 컨버터<br/>
 ![image](https://user-images.githubusercontent.com/102573192/217997289-af8273dc-529b-4f4a-abf0-266fca42c52a.png)<br/>
