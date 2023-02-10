@@ -98,9 +98,9 @@ HttpEntity , @RequestBody 를 사용하면 HTTP 메시지 컨버터가 HTTP 메�
 @RequestBody는 생략 불가능<br/>
 :five: 정리<br/>
 @RequestBody 요청<br/>
->> JSON 요청 HTTP 메시지 컨버터 객체<br/>
+JSON 요청 HTTP 메시지 컨버터 객체<br/>
 @ResponseBody 응답<br/>
->> 객체 HTTP 메시지 컨버터 JSON 응답<br/>
+객체 HTTP 메시지 컨버터 JSON 응답<br/>
 <br/>
 ✏️ HTTP 응답 - 정적 리소스, 뷰 템플릿<br/>
 스프링(서버)에서 응답 데이터를 만드는 방법은 크게 3가지이다.<br/>
