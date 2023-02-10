@@ -30,7 +30,6 @@
 >> /hello-basic URL 호출이 오면 이 메서드가 실행되도록 매핑한다.<br/>
 >> 대부분의 속성을 배열[] 로 제공하므로 다중 설정이 가능하다. {"/hello-basic", "/hello-go"}<br/>
 <br/>
-
 ✏️ HTTP 요청 파라미터 - 쿼리 파라미터, HTML Form<br/>
 :round_pushpin: HTTP 요청 데이터 조회 <br/>
 HTTP 요청 메시지를 통해 클라이언트에서 서버로 데이터를 전달하는 방법을 알아보자.<br/>
@@ -53,7 +52,6 @@ POST, PUT, PATCH<br/>
 GET 쿼리 파리미터 전송 방식이든, POST HTML Form 전송 방식이든 둘다 형식이 같으므로 구분없이 조회할 수 있다.<br/>
 이것을 간단히 >> 요청 파라미터(request parameter) 조회 << 라 한다.<br/>
 :round_pushpin: 스프링이 제공하는 @RequestParam 을 사용하면 요청 파라미터를 매우 편리하게 사용할 수 있다.<br/>
-<br/>
 :one: @RequestParam : 파라미터 이름으로 바인딩<br/>
 :two: @ResponseBody : View 조회를 무시하고, HTTP message body에 직접 해당 내용 입력<br/>
 :three: @RequestParam의 name(value) 속성이 파라미터 이름으로 사용<br/>
@@ -74,6 +72,7 @@ GET 쿼리 파리미터 전송 방식이든, POST HTML Form 전송 방식이든 
 그런데 @RequestParam 도 생략할 수 있으니 혼란이 발생할 수 있다. 스프링은 해당 생략시 다음과 같은 규칙을 적용한다.<br/>
   :one: String , int , Integer 같은 단순 타입 = @RequestParam<br/>
   :two: 나머지 = @ModelAttribute (argument resolver 로 지정해둔 타입 외<br/>
+  <br/>
 ✏️ 프로퍼티란?<br/>
 객체에 getUsername() , setUsername() 메서드가 있으면, 이 객체는 username 이라는 프로퍼티를 가지고 있다.<br/>
 username 프로퍼티의 값을 변경하면 setUsername() 이 호출되고, 조회하면 getUsername() 이 호출된다.<br/>
