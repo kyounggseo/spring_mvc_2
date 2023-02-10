@@ -68,8 +68,7 @@ GET 쿼리 파리미터 전송 방식이든, POST HTML Form 전송 방식이든 
 <br/>
 :two: 스프링MVC는 @ModelAttribute 가 있으면 다음을 실행한다.<br/>
 :one: HelloData 객체를 생성한다.<br/>
-:two: 요청 파라미터의 이름으로 HelloData 객체의 프로퍼티를 찾는다. 그리고 해당 프로퍼티의 setter를 호출해서 파라미터의 값을 입력(바인딩) 한다.<br/>
-예) 파라미터 이름이 username 이면 setUsername() 메서드를 찾아서 호출하면서 값을 입력한다.<br/>
+:two: 요청 파라미터의 이름으로 HelloData 객체의 프로퍼티를 찾는다. 그리고 해당 프로퍼티의 setter를 호출해서 파라미터의 값을 입력(바인딩) 한다. 예) 파라미터 이름이 username 이면 setUsername() 메서드를 찾아서 호출하면서 값을 입력한다.<br/>
 <br/>
 :three: @ModelAttribute 는 생략할 수 있다.<br/>
 그런데 @RequestParam 도 생략할 수 있으니 혼란이 발생할 수 있다. 스프링은 해당 생략시 다음과 같은 규칙을 적용한다.<br/>
@@ -78,8 +77,6 @@ GET 쿼리 파리미터 전송 방식이든, POST HTML Form 전송 방식이든 
 ✏️ 프로퍼티란?<br/>
 객체에 getUsername() , setUsername() 메서드가 있으면, 이 객체는 username 이라는 프로퍼티를 가지고 있다.<br/>
 username 프로퍼티의 값을 변경하면 setUsername() 이 호출되고, 조회하면 getUsername() 이 호출된다.<br/>
-
-<br/>
 ✏️ HTTP 요청 메시지 - 단순 텍스트<br/>
 요청 파라미터와 다르게, HTTP 메시지 바디를 통해 데이터가 직접 넘어오는 경우는 @RequestParam , @ModelAttribute 를 사용할 수 없다. <br/>
 (물론 HTML Form 형식으로 전달되는 경우는 요청 파라미터로 인정된다.)<br/>
@@ -95,15 +92,15 @@ HTTP 메시지 바디를 직접 조회하는 기능: @RequestBody<br/>
 :three: @ResponseBody<br/>
 @ResponseBody 를 사용하면 응답 결과를 HTTP 메시지 바디에 직접 담아서 전달할 수 있다. 물론 이 경우에도 view를 사용하지 않는다<br/>
 :four: @RequestBody 객체 파라미터<br/>
->> @RequestBody HelloData data<br/>
+[코드] @RequestBody HelloData data<br/>
 @RequestBody 에 직접 만든 객체를 지정할 수 있다.<br/>
 HttpEntity , @RequestBody 를 사용하면 HTTP 메시지 컨버터가 HTTP 메시지 바디의 내용을 우리가 원하는 문자나 객체 등으로 변환해준다.<br/>
 @RequestBody는 생략 불가능<br/>
 :five: 정리<br/>
 @RequestBody 요청<br/>
-  >> JSON 요청 HTTP 메시지 컨버터 객체<br/>
+>> JSON 요청 HTTP 메시지 컨버터 객체<br/>
 @ResponseBody 응답<br/>
-  >> 객체 HTTP 메시지 컨버터 JSON 응답<br/>
+>> 객체 HTTP 메시지 컨버터 JSON 응답<br/>
 <br/>
 ✏️ HTTP 응답 - 정적 리소스, 뷰 템플릿<br/>
 스프링(서버)에서 응답 데이터를 만드는 방법은 크게 3가지이다.<br/>
