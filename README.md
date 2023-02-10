@@ -19,18 +19,18 @@
 
 ✏️ 매핑 정보<br/>
 :round_pushpin: @RestController<br/>
->> @Controller 는 반환 값이 String 이면 뷰 이름으로 인식된다. 그래서 뷰를 찾고 뷰가 랜더링 된다.<br/>
->> @RestController 는 반환 값으로 뷰를 찾는 것이 아니라, HTTP 메시지 바디에 바로 입력한다. <br/>
+> @Controller 는 반환 값이 String 이면 뷰 이름으로 인식된다. 그래서 뷰를 찾고 뷰가 랜더링 된다.<br/>
+> @RestController 는 반환 값으로 뷰를 찾는 것이 아니라, HTTP 메시지 바디에 바로 입력한다. <br/>
 따라서 실행 결과로 메세지를 받을 수 있다.<br/>
 :round_pushpin: LEVEL: TRACE > DEBUG > INFO > WARN > ERROR<br/>
->> 개발 서버는 debug 출력<br/>
->> 운영 서버는 info 출력<br/>
+> 개발 서버는 debug 출력<br/>
+> 운영 서버는 info 출력<br/>
 <br/>
 
 ✏️ 요청 매핑<br/>
 :round_pushpin: @RequestMapping("/hello-basic")<br/>
->> /hello-basic URL 호출이 오면 이 메서드가 실행되도록 매핑한다.<br/>
->> 대부분의 속성을 배열[] 로 제공하므로 다중 설정이 가능하다. {"/hello-basic", "/hello-go"}<br/>
+> /hello-basic URL 호출이 오면 이 메서드가 실행되도록 매핑한다.<br/>
+> 대부분의 속성을 배열[] 로 제공하므로 다중 설정이 가능하다. {"/hello-basic", "/hello-go"}<br/>
 <br/>
 
 ✏️ HTTP 요청 파라미터 - 쿼리 파라미터, HTML Form<br/>
@@ -66,7 +66,7 @@ GET 쿼리 파리미터 전송 방식이든, POST HTML Form 전송 방식이든 
 ✏️ HTTP 요청 파라미터 - @ModelAttribute<br/>
 요청 파라미터를 받아서 필요한 객체를 만들고 그 객체에 값을 넣어주어야 한다. 스프링은 이 과정을 완전히 자동화해주는 @ModelAttribute 기능을 제공한다.<br/>
 :one: 롬복 @Data<br/>
-  >> @Getter , @Setter , @ToString , @EqualsAndHashCode , @RequiredArgsConstructor 를 자동으로 적용해준다.<br/>
+  > @Getter , @Setter , @ToString , @EqualsAndHashCode , @RequiredArgsConstructor 를 자동으로 적용해준다.<br/>
 :two: 스프링MVC는 @ModelAttribute 가 있으면 다음을 실행한다.<br/>
 > HelloData 객체를 생성한다.<br/>
 > 요청 파라미터의 이름으로 HelloData 객체의 프로퍼티를 찾는다. 그리고 해당 프로퍼티의 setter를 호출해서 파라미터의 값을 입력(바인딩) 한다. 예) 파라미터 이름이 username 이면 setUsername() 메서드를 찾아서 호출하면서 값을 입력한다.<br/>
@@ -84,7 +84,7 @@ username 프로퍼티의 값을 변경하면 setUsername() 이 호출되고, 조
 ✏️ HTTP 요청 메시지 - 단순 텍스트<br/>
 요청 파라미터와 다르게, HTTP 메시지 바디를 통해 데이터가 직접 넘어오는 경우는 @RequestParam , @ModelAttribute 를 사용할 수 없다. <br/>
 (물론 HTML Form 형식으로 전달되는 경우는 요청 파라미터로 인정된다.)<br/>
->> HTTP 메시지 바디의 데이터를 InputStream 을 사용해서 직접 읽을 수 있다<br/>
+> HTTP 메시지 바디의 데이터를 InputStream 을 사용해서 직접 읽을 수 있다<br/>
 :one: @RequestBody<br/>
 @RequestBody 를 사용하면 HTTP 메시지 바디 정보를 편리하게 조회할 수 있다. 참고로 헤더 정보가 필요하다면 HttpEntity 를 사용하거나 @RequestHeader 를 사용하면 된다.<br/>
 이렇게 메시지 바디를 직접 조회하는 기능은 요청 파라미터를 조회하는 @RequestParam , @ModelAttribute 와는 전혀 관계가 없다.<br/>
@@ -137,8 +137,8 @@ HandlerMethodReturnValueHandler 를 줄여서 ReturnValueHandler 라 부른다. 
 
 ✏️ HTTP 메시지 컨버터<br/>
 ![image](https://user-images.githubusercontent.com/102573192/217997289-af8273dc-529b-4f4a-abf0-266fca42c52a.png)<br/>
->> HTTP 메시지 컨버터를 사용하는 @RequestBody 도 컨트롤러가 필요로 하는 파라미터의 값에 사용된다.<br/>
->> @ResponseBody 의 경우도 컨트롤러의 반환 값을 이용한다.<br/>
+> HTTP 메시지 컨버터를 사용하는 @RequestBody 도 컨트롤러가 필요로 하는 파라미터의 값에 사용된다.<br/>
+> @ResponseBody 의 경우도 컨트롤러의 반환 값을 이용한다.<br/>
 :round_pushpin: 요청의 경우 @RequestBody 를 처리하는 ArgumentResolver 가 있고, HttpEntity 를 처리하는 ArgumentResolver 가 있다. 이 ArgumentResolver 들이 HTTP 메시지 컨버터를 사용해서 필요한 객체를 생성하는 것이다. <br/>
 :round_pushpin: 응답의 경우 @ResponseBody 와 HttpEntity 를 처리하는 ReturnValueHandler 가 있다. 그리고 여기에서 HTTP 메시지 컨버터를 호출해서 응답 결과를 만든다.<br/>
 :round_pushpin: 스프링 MVC는 @RequestBody @ResponseBody 가 있으면 RequestResponseBodyMethodProcessor (ArgumentResolver),<br/>
