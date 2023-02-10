@@ -62,10 +62,9 @@ GET 쿼리 파리미터 전송 방식이든, POST HTML Form 전송 방식이든 
 요청 파라미터를 받아서 필요한 객체를 만들고 그 객체에 값을 넣어주어야 한다. 스프링은 이 과정을 완전히 자동화해주는 @ModelAttribute 기능을 제공한다.<br/>
 :one: 롬복 @Data<br/>
   >> @Getter , @Setter , @ToString , @EqualsAndHashCode , @RequiredArgsConstructor 를 자동으로 적용해준다.<br/>
-<br/>
 :two: 스프링MVC는 @ModelAttribute 가 있으면 다음을 실행한다.<br/>
-:one: HelloData 객체를 생성한다.<br/>
-:two: 요청 파라미터의 이름으로 HelloData 객체의 프로퍼티를 찾는다. 그리고 해당 프로퍼티의 setter를 호출해서 파라미터의 값을 입력(바인딩) 한다. 예) 파라미터 이름이 username 이면 setUsername() 메서드를 찾아서 호출하면서 값을 입력한다.<br/>
+> HelloData 객체를 생성한다.<br/>
+> 요청 파라미터의 이름으로 HelloData 객체의 프로퍼티를 찾는다. 그리고 해당 프로퍼티의 setter를 호출해서 파라미터의 값을 입력(바인딩) 한다. 예) 파라미터 이름이 username 이면 setUsername() 메서드를 찾아서 호출하면서 값을 입력한다.<br/>
 <br/>
 :three: @ModelAttribute 는 생략할 수 있다.<br/>
 그런데 @RequestParam 도 생략할 수 있으니 혼란이 발생할 수 있다. 스프링은 해당 생략시 다음과 같은 규칙을 적용한다.<br/>
