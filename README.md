@@ -71,13 +71,13 @@ GET 쿼리 파리미터 전송 방식이든, POST HTML Form 전송 방식이든 
 :two: 요청 파라미터의 이름으로 HelloData 객체의 프로퍼티를 찾는다. 그리고 해당 프로퍼티의 setter를 호출해서 파라미터의 값을 입력(바인딩) 한다.<br/>
 예) 파라미터 이름이 username 이면 setUsername() 메서드를 찾아서 호출하면서 값을 입력한다.<br/>
 <br/>
->> 프로퍼티란?<br/>
+:three: @ModelAttribute 는 생략할 수 있다.<br/>
+그런데 @RequestParam 도 생략할 수 있으니 혼란이 발생할 수 있다. 스프링은 해당 생략시 다음과 같은 규칙을 적용한다.<br/>
+  :one: String , int , Integer 같은 단순 타입 = @RequestParam<br/>
+  :two: 나머지 = @ModelAttribute (argument resolver 로 지정해둔 타입 외<br/>
+✏️ 프로퍼티란?<br/>
 객체에 getUsername() , setUsername() 메서드가 있으면, 이 객체는 username 이라는 프로퍼티를 가지고 있다.<br/>
 username 프로퍼티의 값을 변경하면 setUsername() 이 호출되고, 조회하면 getUsername() 이 호출된다.<br/>
-:three: @ModelAttribute 는 생략할 수 있다.<br/>
->> 그런데 @RequestParam 도 생략할 수 있으니 혼란이 발생할 수 있다. 스프링은 해당 생략시 다음과 같은 규칙을 적용한다.<br/>
-:one: String , int , Integer 같은 단순 타입 = @RequestParam<br/>
-:two: 나머지 = @ModelAttribute (argument resolver 로 지정해둔 타입 외<br/>
 
 <br/>
 ✏️ HTTP 요청 메시지 - 단순 텍스트<br/>
