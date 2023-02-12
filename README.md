@@ -65,7 +65,7 @@ GET 쿼리 파리미터 전송 방식이든, POST HTML Form 전송 방식이든 
 
 ✏️ HTTP 요청 파라미터 - @ModelAttribute<br/>
 요청 파라미터를 받아서 필요한 객체를 만들고 그 객체에 값을 넣어주어야 한다. 스프링은 이 과정을 완전히 자동화해주는 @ModelAttribute 기능을 제공한다.<br/>
-:one: 롬복 @Data<br/>
+> :one: 롬복 @Data<br/>
   > @Getter , @Setter , @ToString , @EqualsAndHashCode , @RequiredArgsConstructor 를 자동으로 적용해준다.<br/>
 :two: 스프링MVC는 @ModelAttribute 가 있으면 다음을 실행한다.<br/>
 > HelloData 객체를 생성한다.<br/>
